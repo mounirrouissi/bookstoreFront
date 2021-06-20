@@ -1,0 +1,18 @@
+.background-blur {
+    filter: blur(20px);
+    overflow: hidden;
+    position: absolute;
+    height: 20%;
+background-image: url("../../assets/img/bestseller.png");
+
+}
+
+.background-blur:before {
+    background: rgba(42,42,42,.5);
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}

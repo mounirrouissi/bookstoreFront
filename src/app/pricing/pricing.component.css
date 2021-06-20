@@ -1,0 +1,32 @@
+
+.info{
+    background-color: rgb(192, 210, 226);
+    color: var(--white1);
+}.success{
+    background-color: rgb(165, 214, 67);
+    
+    color: var(--white1);
+}
+
+
+.pricing .container  .col  div
+{
+padding: 5%;
+}
+
+.danger{
+    background-color: gold;
+    color: white1;
+}
+.price-headline{
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+@white1 = color: #fff;
+/* 
+@grad = background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+   */
+   h1,h2,h3,h4{
+       text-align: center;
+   }

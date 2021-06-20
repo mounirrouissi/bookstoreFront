@@ -1,0 +1,25 @@
+<html>
+  <body>
+   <!-- <link rel="stylesheet" href="./login.component.css"> -->
+    <!-- <h1>Keycloak Angular Example</h1>
+<!--   
+    <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
+    <button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button> -->
+
+    <div class="container text">
+      <div class="row name">
+        <label for="email" >Email</label>
+        <input type="email" name="email" id="eamil" [(ngModel)]="user.email">
+      </div>
+      <div class="row password">
+<label for="password" >Password</label>
+
+<input type="password" name="password" id="password" [(ngModel)]="user.password">
+
+
+      </div >
+      <div class="row"><button class="btn primary btn-lg" (click)="login()">Log in</button></div>
+    </div>
+    
+  </body>
+</html>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { KeycloakService } from 'keycloak-angular';
-import { KeycloakProfile } from 'keycloak-js';
+import { Category } from './models/category';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,19 @@ import { KeycloakProfile } from 'keycloak-js';
 })
 export class AppComponent {
   title = 'testSvg';
-  constructor() { }
+ categories:Category[]=[]
+
+  constructor(private service:ApiService) { }
 
   public async ngOnInit() {
+    this.getCategories();
     
   }
-
+  getCategories() {
+    this.service.getCategories().subscribe(
+      resp=>{this.categories=resp}
+    );
+    }
   deleteAccept(s:any)
   {
 console.log(s);

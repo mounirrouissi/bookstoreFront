@@ -6,20 +6,23 @@
     <button *ngIf="isLoggedIn" type="button" (click)="logout()">Log out</button>
     <button *ngIf="!isLoggedIn" type="button" (click)="login()">Log in</button> -->
 
-    <div class="container text">
-      <div class="row name">
-        <label for="email" >Email</label>
-        <input type="email" name="email" id="eamil" [(ngModel)]="user.email">
+    <form #loginForm="ngForm" (ngSubmit)= login(loginForm.value)>
+      <div class="container text">
+      
+        <div class="row name">
+          <label for="email" >Email</label>
+          <input type="email" name="email" id="eamil" ngModel>
+        </div>
+        <div class="row password">
+        <label for="password" >Password</label>
+      
+        <input type="password" name="password" id="password"ngModel>
+        </div >
+        <div class="row"><button class="btn primary btn-lg" type="submit">Log in</button></div>
+      
       </div>
-      <div class="row password">
-<label for="password" >Password</label>
+    </form>
 
-<input type="password" name="password" id="password" [(ngModel)]="user.password">
-
-
-      </div >
-      <div class="row"><button class="btn primary btn-lg" (click)="login()">Log in</button></div>
-    </div>
-    
+ 
   </body>
 </html>

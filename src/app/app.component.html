@@ -1,2 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
 
+
+
+<body>
+
+  <section class="navigation">
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <div class="container-fluid" >
+            <a class="navbar-brand active" aria-current="page" href="#">
+Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-" ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+            </div>
+
+
+
+
+       <app-search></app-search>
+        
+         
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+  <section class="row categories-plus-books">
+
+<div class="categories-container col  col-md-3">
+  <h1>Categories :</h1>
+  <li *ngFor="let category of categories">
+    <a routerLink="/category/{{category.id}}" routerLinkActive="router-link-active" >{{category.name}}</a>
+  </li>
+  </div> 
+  
+  <div class="col  col-md-9">
 <router-outlet></router-outlet>
+  
+</div>
+  </section>
+</body>
+</html>

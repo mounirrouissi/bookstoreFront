@@ -1,0 +1,41 @@
+<div class="container-fluid ">
+  <div class="row">
+    <ul *ngFor="let item of books">
+  
+  
+  <div class="book-container">
+    <a routerLink="/books/{{item.id}}"><img src="../../assets/img/bestseller.png" class="img-responsive" alt=""></a>
+    
+    <br>
+          <span>Name:</span>
+          <li>{{item.name}}</li>
+  </div>
+</ul>
+  </div>
+  <div *ngIf="books?.length==0" class="alert alert-warning">No Product found</div>
+
+  <!--begin pagination footer -->
+  <div class="footer-pagination">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-9" style="padding-left: 30%;">
+<ngb-pagination 
+[(page)]="pageNumber"
+[pageSize]="pageSize"
+[collectionSize]="totalElements"
+(pageChange)="listProducts()"
+>
+
+</ngb-pagination>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end pagination footer -->
+
+</div>
+           

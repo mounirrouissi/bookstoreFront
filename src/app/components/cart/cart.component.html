@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+  
+  
+      
+        <div class="card-header total" >
+            <span class="bg-info text-danger">{{totalPrice | currency :'USD'}}</span>
+          </div>
+
+            <a href="" routerLink="/cart-details">
+           
+              <li class="cart-icon bi-cart-check"><a href="#">
+                <i class="icon_bag_alt"></i>
+                <span class="bg-light ">{{totalQuantity}}</span>
+
+            </a>
+            <div class="cart-hover">
+                <div class="select-items">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                <td class="si-text">
+                                    <div class="product-selected">
+                                        <p>$60.00 x 1</p>
+                                        <h6>Kabino Bedside Table</h6>
+                                    </div>
+                                </td>
+                                <td class="si-close">
+                                    <i class=" bi-x-circle"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
+                                <td class="si-text">
+                                    <div class="product-selected">
+                                        <p>$60.00 x 1</p>
+                                        <h6>Kabino Bedside Table</h6>
+                                    </div>
+                                </td>
+                                <td class="si-close">
+                                    <i class="ti-close"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="select-total">
+                    <span>total:</span>
+                    <h5>$120.00</h5>
+                </div>
+                <div class="select-button">
+                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                </div>
+            </div>
+            </li>
+                                    </a>
+              <!--dow arrow showig the cart content-->
+        
+            
+          
+  
+     <!--         <a class="btn btn-primary btn-sm bi bi-arrow-down" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+              (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+              >
+                <li class=""></li>
+              </a>
+              <div class="collapse" id="collapseExample"  [ngbCollapse]="!isCollapsed">
+                <div class="text-light">
+                  <p>Lorem ipsum dolor sit.
+                  </p>
+                </div>
+                
+              </div>
+            -->
+        
+  
+</body>
+</html>

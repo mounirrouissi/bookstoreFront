@@ -40,7 +40,7 @@ totalElements:number=0;
   getProductsBySearch() {
   //
   const text=this.route.snapshot.paramMap.get("keyword");
-  console.log("****"+text);
+  console.log("**bcomponent searched keywoord**"+text);
   this.apiService.searchMethod(text).subscribe(
     res=>{this.books=res;},
     _error=>{alert("can't get data from seaarched text");}
@@ -100,7 +100,6 @@ this.totalElements=data.totalElements;
 
   
 addToCart(book:Book){
-console.log(book.name+'ddddd')
 
 const cartItem=new CartItem(book);
 

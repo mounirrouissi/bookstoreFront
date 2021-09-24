@@ -1,35 +1,22 @@
-import { Component } from '@angular/core';
-import { Category } from './models/category';
-import { ApiService } from './services/api.service';
-
+import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  isCollapsed = false;
-  title = 'testSvg';
- categories:Category[]=[]
+export class AppComponent implements OnInit {
+  title = 'test2';
+  isAuthenticated: boolean = false;
 
-  constructor(private service:ApiService) { 
-
+  constructor(public oktaAuth: OktaAuthService) {
   }
 
-  public async ngOnInit() {
-    this.getCategories();
-    
-  }
-  getCategories() {
-    this.service.getCategories().subscribe(
-      resp=>{
-        console.log("🚀 ~ file: app.component.ts ~ line 26 ~ AppComponent ~ getCategories ~ resp", resp),
-        this.categories=resp}
+  async ngOnInit() {
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    this.oktaAuth.$authenticationState.subscribe(
+      (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
     );
-    }
-  deleteAccept(s:any)
-  {
-console.log(s);
   }
 }

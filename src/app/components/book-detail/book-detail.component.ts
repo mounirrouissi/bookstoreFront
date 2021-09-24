@@ -26,7 +26,7 @@ export class BookDetailComponent implements OnInit {
    getBookById(bookId).subscribe
    (
      res=>{
-      console.log("BOok="+res) ,
+      console.log("Book="+res) ,
       this.book=res},
      _error=>{alert("no sush book ")}
    )

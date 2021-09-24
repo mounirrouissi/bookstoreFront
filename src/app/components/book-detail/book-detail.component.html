@@ -1,25 +1,68 @@
-<div class="container-fluid  mx-0"><div class="row  book-detail">
+<p>{{book.name}}</p>
+
+<section class="banner pb-80">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-6">
+                <div class="banner-img pr-3">
+                    <img src="../../../assets/images/Webp.net-resizeimage-05d69d62624843d4afc367ab3a4a3d3a.webp" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="banner-content mt-4 mt-lg-0">
+                    <h1>{{book.name}}</h1>
+                    <ul>
+                       <li>Description HERE</li>
+                    </ul>
+                    <a href="#" class="btn btn-main">Get this book at {{book.price|currency :"DN"}}</a>
+                    <p>Interested in free chapter? <a href="#">Get it now</a></p>
+                </div>
+            </div>
+        </div> <!-- / .row -->
+    </div>
     
-        <div class="col-8 book-title">
-            <h4 class="text-light">{{book.name}}</h4>
+</section>
+
+
+<section class="feature-2 pt-100 bg-grey">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading text-center mb-60">
+                    <h3 class="heading-title">Who This Book Is For</h3>
+                    <p>This book is concerned with creating typography and is essential for professionals who regularly work for clients.</p>
+                </div>
+            </div>
         </div>
-        <div class="col-4  ">
-            <h4>{{book.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum perferendis reiciendis neque in voluptatum consequatur esse corrupti ea harum labore explicabo eius molestias repellendus, porro officiis dolore nihil eum quaerat? Maiores, cupiditate quaerat.</h4>
-        </div>>
-        <div class="row">
-            <button (click)="addToCart()" class="btn w-25 btn-primary">Add to cart</button>
+        <div class="row ">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-style-2 mb-4 mb-lg-0">
+                    <i class="bi bi-award-fill"></i>
+                    <div class="feature-text">
+                        <h4>Entrepreneurs</h4>
+                        <p>Behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-style-2 mb-4 mb-lg-0">
+                    <i class="bi bi-article"></i>
+                    <div class="feature-text">
+                        <h4>Project Managers</h4>
+                        <p>Behind the word mountains, far from the countries </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-style-2 mb-4 mb-lg-0">
+                    <i class="bi bi-headset"></i>
+                    <div class="feature-text">
+                        <h4>Students</h4>
+                        <p>Behind the word mountains, far from the countries</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-</div>
-<button (click)="back()" class="bi bi-arrow-return-left float-end bg-transparent btn-outline-light text-dark">Back</button>
-
-
-
-<!-- background animations-->
-<div class="col   col-lg-12 w-100">
-    <div class="lines">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div> 
-        <div class="line"></div>
     </div>
-    </div>
+</section>

@@ -1,11 +1,78 @@
-<div class="container-fluid" *ngFor="let book of cartItems">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<body>
+    
+  
+    
+<div class="shopping-cart" >
+    <!-- Title -->
+    <div class="title">
+      Shopping Bag
+    </div>
+   
+    <!-- Product #1 -->
+    <div *ngIf="cartItems.length>0;else cartEmpty">
+        <table class="table">
+            <tr>
+                <th class="p-4" >Product</th>
+                <th  class="p-4" >Quantity</th>
+                <th class="p-4"  >Price</th>
+            </tr>
+        
+           <tr *ngFor="let item of cartItems" >
+               
+                
+           <th class="d-flex">
+               
+                     <div class="image">
+                       <img class="img-responsive img-fluid h-25" src="../../../assets/images/Webp.net-resizeimage-05d69d62624843d4afc367ab3a4a3d3a.webp" alt="" />
+                     </div>
+                     <div  class="description lead text-decoration-underline">
+                         {{item.name}}</div>
+                     
+        
+           </th>
+                 <th>
+                     
+                     <button class="bi-dash" type="button" (click)="decrementQuantity(item)" name="button">
+                     </button>
+                     <input class="w-50" type="text" name="name" value={{item.quantity}}>
+                     <button class="bi-plus plusy" (click)="incrementQuantity(item)"type="button" name="button">
+                     </button>
+                     <br><br>
+                     <button class="bi-eraser" (click)="remove(item)"type="button" name="button">Remove
+                     </button>
+                     
+                 </th>
+                 <th>
+                     {{item.quantity*item.price|currency:"DN"}}
+                 </th>
+               
+           </tr>
+        
+      
+        </table>
+        <tr class=" float-end pull-righr bg-dark me-2 lead" >
+            <button routerLink="/checkout" id="checkout" value="Checkout" type="submit">
+Checkout
+            </button>
+        </tr>
+    </div>
+    <ng-template  #cartEmpty>
+        <p class="bg-danger text-light text-center lead ">
+            Cart Empty
+    </p>
+</ng-template>
 
-<div class="row">
-    <div class="col col-6">
-        <h2>{{book.name}}</h2>
-    </div>
-    <div class="col col-6">
-        <h2>{{book.price}}</h2>
-    </div>
-</div>
-</div>
+
+  </div>
+
+</body>
+</html>

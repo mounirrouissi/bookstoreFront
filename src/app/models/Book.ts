@@ -8,6 +8,7 @@ export interface Book{
      unitsInStock?:number,
      dateCreated?:Date,
      dateUpdated?:Date,
+     
   }
 
  

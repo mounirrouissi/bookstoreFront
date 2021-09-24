@@ -38,7 +38,7 @@
                     <div id="miniBasket">
                         <!-- basket total -->
                         <div class="details">
-                            <a href="/cart-details">
+                            <a href="/cart-details" routerLink="/cart-details">
                                 <span class="imageHolder"></span>
                                 <span id="uxSmallBasketQuantity"><span class="number">{{totalQuantity}}</span><span
                                         class="text"> items</span></span>
@@ -88,6 +88,7 @@
                         </a>
                       
                     </div>
+                    
                     <div id="searchClicker">
                         <div class="click"><i class="bi bi-search center-block " aria-hidden="true"></i><span >search </span>
                         </div>
@@ -131,10 +132,17 @@
                                     </select>
                                 </div>
 
-                                <label for="keyword">Search for a product</label><input id="keyword"
-                                    class="form-control ui-autocomplete-input" name="keyword" type="text"
-                                    placeholder="Search" itemprop="query-input" required=""
-                                    autocomplete="off"><input type="submit" value="Search">
+                                <label for="keyword">Search for a product</label>
+                                <input 
+                                #myInput 
+                                (keyup.enter)="doSearch(myInput.value)"
+                                id="keyword"
+                                class="form-control ui-autocomplete-input" name="keyword" type="text"
+                                placeholder="Search..."  
+                                ><input type="submit" value="Search"
+                                (click)=doSearch(myInput.value)
+                                    />
+
                             </div>
 
                         </form>

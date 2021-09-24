@@ -1,6 +1,8 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ApiService } from 'app/services/api.service';
 import { CartService } from 'app/services/cart.service';
 
 @Component({
@@ -11,9 +13,10 @@ import { CartService } from 'app/services/cart.service';
 export class HeaderComponent implements OnInit {
 @Input() categories: any;
 totalQuantity: number=0;
+totalPrice: number=0;
 
 
-constructor(private cartService:CartService) {
+constructor(private cartService:CartService,private service:ApiService,private router:Router) {
 
 }
 
@@ -22,14 +25,31 @@ constructor(private cartService:CartService) {
 
 
   }
+  doSearch(text:string){
+    console.log("text="+text);
+    this.router.navigateByUrl('/search/'+text)
+
+  }
   updateCartStatus() {
   
 
     this.cartService.totalQuantity.subscribe(
   
-      (    data: number)=>this.totalQuantity=data 
-    );
+      (    data: number)=>
+      {
+        this.totalQuantity=data 
+      
+      }
+      
+    ); this.cartService.totalPrice.subscribe(
   
-    console.log("cartcartcart "+this.totalQuantity)
+      (    data: number)=>
+      {
+        this.totalPrice=data 
+      
+      }
+      
+    );
+
     }
 }

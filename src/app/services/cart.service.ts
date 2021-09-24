@@ -6,6 +6,7 @@ import { CartItem } from '../models/cart';
   providedIn: 'root'
 })
 export class CartService {
+  
 
   carItems: CartItem[] = []
   totalPrice: Subject<number> = new Subject<number>();
@@ -26,13 +27,13 @@ export class CartService {
 
       // find item in the cart based on its id
 
-  /*     for (let temp of this.carItems) {
+      for (let temp of this.carItems) {
         if (temp.id === newCartItem.id) {
           existingItem = temp
           break;
         }
 
-      } */
+      }
 
       //refactoring the for loop by using array.find method
       existingItem = this.carItems.find(temp=>temp.id === newCartItem.id)
@@ -79,6 +80,13 @@ export class CartService {
   }
   console.log("the Sum : \n"+"\n price :"+totalPriceValue.toFixed(3)+"\nquantity:"+totalQuantityValue)
   }
+
+  remove(item: CartItem) {
+  const itmeIndex=this.carItems.findIndex(temp=>temp.id==item.id);
+  if(itmeIndex>-1)
+  this.carItems.splice(itmeIndex,1)
+  }
+
 }
 
 

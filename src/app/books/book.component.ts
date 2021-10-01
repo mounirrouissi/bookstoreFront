@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Category } from 'app/models/category';
 import { Book } from '../models/Book';
 import { Books } from '../models/Books';
 import { CartItem } from '../models/cart';
@@ -12,9 +13,10 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  
+  category?: Category;
   books: Book[] | any = [];
  currentCategoryId: number=1;
+//  currentCategoryName: string|any="";
  previousCategoryId!: number;
 pageNumber:number=1;
 pageSize=10;
@@ -25,6 +27,15 @@ totalElements:number=0;
   constructor(private apiService:ApiService,private route:ActivatedRoute,private cartService:CartService) { }
 
   ngOnInit(): void {
+    // this.currentCategoryName= this.route.snapshot.paramMap.get("name");
+    this.currentCategoryId= Number(this.route.snapshot.paramMap.get('id'));
+
+    this.apiService.getCategoryById(this.currentCategoryId).subscribe(
+      res=>
+      {console.log("category name ==="+res.name);
+        this.category=res}
+
+    );
    this.route.paramMap.subscribe(()=>{
     this.listProducts();
    } )  ;
@@ -51,17 +62,16 @@ totalElements:number=0;
   //get books by category
  getBooks() {
    //  check if 'id ' is avaialble
-const hasCategoryId:boolean=this.route.snapshot.paramMap.has('id');
-
+const hasCategoryId=Number(this.route.snapshot.paramMap.has('id'));
+console.log("------------"+hasCategoryId)
 if(hasCategoryId )
+
 {
 this.currentCategoryId= Number(this.route.snapshot.paramMap.get('id'));
-console.log("***cureentId==="+this.currentCategoryId);
-this.apiService.getBooksByCategory(this.currentCategoryId).subscribe(
-  res=>{
-  console.log(res),
-    this.books=res}
-);
+
+console.log("cat name"+this.currentCategoryId)
+this.apiService.getBooksByCategoryId(this.currentCategoryId).subscribe(
+res=>this.books=res );
 }
 
   // check if we have a diiferent category than previous 

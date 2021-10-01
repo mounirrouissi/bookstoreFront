@@ -7,7 +7,6 @@
 .alert{
     background-color: rgb(208, 214, 198);
 }
-@charset "utf-8";
 /* CSS Document */
 
 a{
@@ -47,7 +46,6 @@ a{
 	align-items: center;
 }
 .card-group{
-	positive:relative;
 	margin: 20px auto;
 	height:auto;
 	width:200px;

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { Injector } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PricingComponent } from './pricing/pricing.component';
@@ -9,7 +10,6 @@ import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTER
 import { ApiService } from './services/api.service';
 import { BookComponent } from './books/book.component';
 import { SearchComponent } from './components/search/search.component';
-import { BookCategoryComponent } from './components/book-category/book-category.component';
 import { CartComponent } from './components/cart/cart.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
@@ -17,17 +17,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/header/header.component';
-import lottie from 'lottie-web';
 import { defineLordIconElement } from "lord-icon-element";
 import { FofComponent } from './components/fof/fof.component';
-import { Carousel1Component } from './components/carousel/carousel.component';
 import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
-import { AuthRoutingModule } from './auth-routing.module';
-import { HomeComponent } from './components/home/home.component';
 import myAppConfig from './config/my-app-config';
 
 // @Injectable()
@@ -47,11 +43,14 @@ import {
   OktaCallbackComponent,
   OktaAuthGuard
 } from '@okta/okta-angular';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { OwlSliderComponent } from './components/owl-slider/owl-slider.component';
 
 
 const oktaConfig = Object.assign({
-  onAuthRequired: (injector: { get: (arg0: typeof Router) => any; }) => {
-    const router = injector.get(Router);
+  onAuthRequired: Injector=> {
+    const router = Injector.get(Router);
 
     // Redirect the user to your custom login page
     router.navigate(['/login']);
@@ -65,34 +64,35 @@ const oktaConfig = Object.assign({
     PricingComponent,
     BlogComponent,
     BookComponent,
-    BookCategoryComponent,
     SearchComponent,
     BookDetailComponent,
     CartComponent,
     CartDetailsComponent,
     HeaderComponent,
-    Carousel1Component,
     HomeComponent    ,
     FofComponent,
     LoginComponent,
     CartCheckoutComponent,
     LoginStatusComponent,
+    ContactComponent,
+    OwlSliderComponent,
 
     
   ],
   imports: [
     OktaAuthModule
-, OktaAuthGuard,
+, 
 FormsModule,
-    ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    CarouselModule ,
     
-    RouterModule,
-    AuthRoutingModule
+    RouterModule
   ],
   providers: [ApiService,
     { provide: OKTA_CONFIG, useValue: oktaConfig }

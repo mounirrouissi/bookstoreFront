@@ -11,14 +11,16 @@ import { CartService } from 'app/services/cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-@Input() categories: any;
+@Input() categoriesToHeader: any;
 totalQuantity: number=0;
 totalPrice: number=0;
-
+public isCollapsed=true;
 
 constructor(private cartService:CartService,private service:ApiService,private router:Router) {
 
 }
+
+
 
   ngOnInit(): void {
     this.updateCartStatus();

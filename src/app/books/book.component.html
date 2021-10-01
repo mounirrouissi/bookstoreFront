@@ -10,7 +10,7 @@
 <body >
 
   <div class="d-inline-grid   start-page m-0 p-auto  ">
-          <h1 class="category-title text-center">Horror</h1>
+          <h1 class="category-title text-center">{{category?.name}}</h1>
 
       <div class="d-inline-flex" *ngFor="let item of books">
   
@@ -33,7 +33,7 @@
                   <div class="text-info text-center justify-content-between d-flex">
         <button (click)="addToCart(item)" class="text-light bg-primary   shadow-none  rounded-end  ">
           Add to cart </button>
-                    <h3 class="d-block ms-auto">{{item.price | currency : "$" }}</h3>
+                    <h3 class="d-block ms-auto">{{item.price | currency : "DN" }}</h3>
         
                   </div>
         

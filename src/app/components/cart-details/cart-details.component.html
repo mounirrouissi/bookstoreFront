@@ -11,7 +11,7 @@
     
   
     
-<div class="shopping-cart" >
+<div class="shopping-cart container" >
     <!-- Title -->
     <div class="title">
       Shopping Bag
@@ -26,7 +26,7 @@
                 <th class="p-4"  >Price</th>
             </tr>
         
-           <tr *ngFor="let item of cartItems" >
+           <tr *ngFor="let item of cartItems"  >
                
                 
            <th class="d-flex">
@@ -39,7 +39,7 @@
                      
         
            </th>
-                 <th>
+                 <th >
                      
                      <button class="bi-dash" type="button" (click)="decrementQuantity(item)" name="button">
                      </button>

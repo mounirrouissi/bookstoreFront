@@ -1,11 +1,32 @@
-<div class="login-status-header">
 
-    <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
-        Welcome back {{ userFullName }}!
+    <div *ngIf="isAuthenticated && userFullName" class="navigation " (click)="logout()" >
+     
+        <a class="userNameChar button" href="">
+          {{userFirstChar}}
+      
+      <div class="logout">LOGOUT</div>
+    
+        </a>
+      
     </div>
+    
 
-    <button *ngIf="!isAuthenticated" routerLink="/login" class="security-btn">Login</button>
 
-    <button *ngIf="isAuthenticated" (click)="logout()" class="security-btn">Logout</button>
+<!--
+<div class="login-status-user-info d-inline"  title="Login" routerLink="/login" *ngIf="!isAuthenticated" ><a class="bi-person rounded-circle fa-2x m-0  " title="Login" role="button"></a>
+<span class="text-light">Login</span> </div>
+-->
 
-</div> 
+
+<li class="dropdown ">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" (click)="isCollapsed=!isCollapsed" >  <span class="d-md-none bi bi-person"></span>
+      <b>Login</b> <span class="caret"></span></a>
+  <!-- Container to inject the Okta Sign-In Widget -->
+  <ul id="login-dp" class="dropdown-menu" [ngbCollapse]="isCollapsed" >
+  <div id="okta-sign-in-widget" class="pt-5"></div>
+ 
+</ul>
+
+
+  
+</li>

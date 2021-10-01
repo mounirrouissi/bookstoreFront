@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import { Feedback } from 'app/models/Feedback';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { Author } from '../models/Author';
 import { Book } from '../models/Book';
@@ -12,9 +14,27 @@ import { User } from '../models/User';
   providedIn: 'root'
 }) 
 export class ApiService {
+  getlatestSixBooks(id: Number):Observable<Book[]> {
+    
+   return this.http.get<Book[]>(this.baseUrl+"/books/latest/"+id) 
+  }
+  getCategoryById(currentCategoryId: number):Observable<Category> {
+  return this.http.get<Category>(this.baseUrl+"category/"+currentCategoryId)
+  }
+  
+  
+  postFeedback(model: Feedback) :Observable<Feedback>{
+  return this.http.post<Feedback>(this.baseUrl+"feedback/",model);
+  }
 
-  getBooksByCategory(categoryId: number): Observable<Book[]> {
-    return this.http.get<Book[]>(this.baseUrl + "categories/" + categoryId+"?page=0&size=2");
+  getBooksByCategoryId(categoryId: number): Observable<Book[]> {
+    console.log("url url"+this.baseUrl + "categories/id/" + categoryId+"?page=0&size=3")
+    return this.http.get<Book[]>(this.baseUrl + "categories/" + categoryId+"?page=0&size=3");
+  }
+  getBooksByCategoryName(categoryName: string): Observable<Book[]> {
+  const url= this.baseUrl + "categories/name/?name=" + categoryName+"&page=0&size=3"
+  console.log("urlurlurl="+url)
+    return this.http.get<Book[]>(url);
   }
 
 
@@ -22,7 +42,7 @@ export class ApiService {
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.baseUrl + "categories");
   }
-  baseUrl: any = "http://www.localhost:8042/"
+  baseUrl: any = environment.baseUrl
   constructor(private http: HttpClient) { }
 
 

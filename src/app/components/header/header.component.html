@@ -10,166 +10,67 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 </head>
 
 <body>
-    
-
-
-<div id="wrap " class="top-header fixed-top ">
-    <div id="headerWrap" >
-        <div id="header" >
-            <div class="container-md " >
-                <div class="row ">
-
-                    <div id="logo" class="navbar-brand  ">
-                        
-                        <a class="header__logo " routerLink="" title="hive.co.uk">
-                            <span class="">BestSelller</span>
-                        
-                        </a>
-                    </div>
-
-
-                    <!-- top menu -->
-                    <div id="miniBasket">
-                        <!-- basket total -->
-                        <div class="details">
-                            <a href="/cart-details" routerLink="/cart-details">
-                                <span class="imageHolder"></span>
-                                <span id="uxSmallBasketQuantity"><span class="number">{{totalQuantity}}</span><span
-                                        class="text"> items</span></span>
-                                <span class="basketText">Basket</span>
-                            </a>
-                            <p></p>
-                            <!--<span id="checkoutLink"><a href="https://www.hive.co.uk/Basket">Basket</a></span>-->
-                        </div>
-                        <!-- @ basket total -->
-                    </div>
-                    <!-- navigation bar -->
-                    <div id="navSupport">
-
-                        <div id="miniNav">
-
-
-
-                            <div class="smallText">Click here to login</div>
-                            <a class="dropdownToggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="navMyAccount">My Account</span>
-                            </a>
-
-                            <ul class="dropdown-menu accountNav" aria-labelledby="dropdownMenuLink">
-                                <li id="navMenuAccount" class="dropdown-item"><a
-                                        href="https://www.hive.co.uk/Account">My account</a></li>
-                                <li id="navMenuLogoff" class="dropdown-item">
-                                    <a href="https://www.hive.co.uk/Account/Logon">Sign In or Register</a>
-                                </li>
-
-
-                                <li class="dropdown-item"><a href="/Account/OrderHistory">Order History</a></li>
-                                <li class="dropdown-item"><a href="/Account/EbookLibrary">eBook Library</a></li>
-                                <li class="dropdown-item"><a href="/Account/Wishlist">Wishlist</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div id="navButton" class="navbar-light navbar-collapse">
-                        
-                        <a class="navbarToggle" aria-controls="navMain" aria-label="Toggle navigation" data-target="collapse">
-                            <div class="aniWrap">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div><span class="togglerText">Menu</span>
-                        </a>
-                      
-                    </div>
-                    
-                    <div id="searchClicker">
-                        <div class="click"><i class="bi bi-search center-block " aria-hidden="true"></i><span >search </span>
-                        </div>
-                    </div>
-                    <script>
-                        $("#searchClicker .click").click(function () {
-                            $("body").toggleClass("mobileSearch");
-                            $("#keyword").focus();
-                        });
-                        $("#miniNav .dropdownToggle").click(function () {
-                            $("#navSupport .dropdown-menu.accountNav").toggle();
-                        });
-                    </script>
-
-                    <!-- @ navigation bar -->
-                    <!-- search bar -->
-                    <div id="searchBar" itemscope="" itemtype="https://schema.org/WebSite">
-
-                        <meta itemprop="url" content="https://www.hive.co.uk/">
-
-                        <form id="SearchForm" action="/Search/Keyword" method="post" itemprop="potentialAction"
-                            itemscope="" itemtype="https://schema.org/SearchAction">
-
-                            <meta itemprop="target"
-                                content="http://www.hive.co.uk/Search/Keyword?keyword={keyword}">
-
-                            <div id="searchBox">
-                                <div class="productType "><label for="productType">Select a product type</label>
-                                    <select id="productType" name="productType" class="custom-select">
-                                        <option value="0" selected="selected">All Products</option>
-                                        <option value="-1" disabled="disabled">---------------------</option>
-                                        <option value="1">Book</option>
-                                        <option value="2">DVD</option>
-                                        <option value="3">Blu-ray</option>
-                                        <option value="4">CD</option>
-                                        <option value="5">eBook</option>
-                                        <option value="6">Merchandise</option>
-                                        <option value="7">Vinyl</option>
-                                        <option value="8">eAudiobook</option>
-                                        <option value="9">Customisable Book</option>
-                                    </select>
-                                </div>
-
-                                <label for="keyword">Search for a product</label>
-                                <input 
-                                #myInput 
-                                (keyup.enter)="doSearch(myInput.value)"
-                                id="keyword"
-                                class="form-control ui-autocomplete-input" name="keyword" type="text"
-                                placeholder="Search..."  
-                                ><input type="submit" value="Search"
-                                (click)=doSearch(myInput.value)
-                                    />
-
-                            </div>
-
-                        </form>
-
-                    </div>
-                    <!-- @search bar -->
-                </div>
-            </div>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+   
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01" [ngbCollapse]="isCollapsed">
+        <a class="navbar-brand" href="#">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item   nav-item-login ">
+            <app-login-status></app-login-status>
+          </li>
+ 
         
+          <form class="form-inline my-2 my-lg-0 d-lg-flex">
+            <input class="form-control mr-sm-2"  #myInput
+            (keyup.enter)="doSearch(myInput.value)"
+            id="keyword"
+             name="keyword" type="text"
         
-        
-        
+            placeholder="Search books,authors..." aria-label="Search">
+            <button class="btn btn-outline-info  my-2 my-sm-0" type="submit"
+            (click)=doSearch(myInput.value)  ><i class="fa fa-search "></i>Search</button>
+          </form>
+          <li class="nav-item nav-item-basket d-sm-block float-end">
+            <!-- top menu -->
+            <div id="miniBasket" class="pl-g-3 pl-3 ml-3 ">
+             <!-- basket total -->
+             <div class="details">
+                 <a href="nav-link " routerLink="/cart-details">
+                     <img src="../../../assets/images/basket.png" class="imageHolder" alt="" srcset="">
+                     <span id="uxSmallBasketQuantity"><span class="number" ngModel=[totalQuantity]>{{totalQuantity}}</span><span
+                             class="text"> items</span></span>
+                 </a>
+                 <p></p>
+                 <!--<span id="checkoutLink"><a href="https://www.hive.co.uk/Basket">Basket</a></span>-->
+             </div>
+             <!-- @ basket total -->
+         </div>
+         </li>
+        </ul>
+       
+       
+      </div>
+      
+  
+  </nav>
 
-        
-        
-        
-    </div>
-</div>
 
 <!--Navigation-->
-<nav class="nav-category">
-    <ul class="nav  d-none d-md-block ">
+<nav class="nav-category mt-5 pt-5 pb-5 mb-5">
+    <ul class="nav-cat  d-none d-md-block ">
       <li><a href="#">Books</a>
     <ul>
         
-            <li *ngFor="let category of categories">
+            <li *ngFor="let category of categoriesToHeader">
                 <a   routerLink="/category/{{category.id}}">{{category.name}}</a>
             </li>
      
@@ -200,7 +101,7 @@
           <li><a href="#">item</a></li>
         </ul>
       </li>
-      <li><a href="#">Download</a></li>
+   <!--
       <li><a href="#">Rants</a>
         <ul>
           <li><a href="#">item</a></li>
@@ -209,7 +110,11 @@
           <li><a href="#">item</a></li>
         </ul>
       </li>
-      <li><a href="#">Contact</a></li>
+
+        -->
+        <li>
+        <a routerL
+        ink="/contact">Contact</a></li>
     </ul>
   </nav>
   <!--E Navigation-->

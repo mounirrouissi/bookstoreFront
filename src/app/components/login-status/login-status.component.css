@@ -15,17 +15,7 @@
     background:#205b8d
 }
 
-/*
-    Copy from styles.css -> .form-header
-    Rename as .login-status-header
-*/
-.login-status-header{
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-moz-box;
-    display:-ms-flexbox;
-    display:flex
-}
+
 
 /*
     Copy from styles.css -> .au-input
@@ -33,7 +23,7 @@
     - remove 'solid', 'font-size', 'color'
 */
 .login-status-user-info {
-    line-height:43px;
+    /* line-height:43px;
     border:1px;
     padding:0 17px;
     -webkit-border-radius:3px;
@@ -42,5 +32,130 @@
     -webkit-transition:all .5s ease;
     -o-transition:all .5s ease;
     -moz-transition:all .5s ease;
-    transition:all .5s ease
+    transition:all .5s ease */
+    padding:20px;
+}@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 30%;
+  background-color: transparent;
+}
+
+.userNameChar {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+  padding-left: 10px;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: 8px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navMyAccount{
+  text-align: center;
+  font-size: 15px;font-family: bookmania,georgia,serif;
+}
+
+
+
+.dropdown{
+  margin-right: 70px;
+  margin-top: 20px;
+}
+
+@media (min-width:"500px") {
+  .dropdown{
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+
+
+#login-dp{
+
+margin-right: 20px;
+  min-width: 450px;
+  overflow:hidden;
+  background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+  font-size:12px    
+}
+#login-dp .bottom{
+  background-color:rgba(255,255,255,.8);
+  border-top:1px solid #ddd;
+  clear:both;
+  padding:14px;
+}
+#login-dp .social-buttons{
+  margin:8px 0    
+}
+#login-dp .social-buttons a{
+  width: 29%;
+}
+#login-dp .form-group {
+  margin-bottom: 10px;
+}
+.btn-fb{
+  color: #fff;
+  background-color:#3b5998;
+}
+.btn-fb:hover{
+  color: #fff;
+  background-color:#496ebc 
+}
+.btn-tw{
+  color: #fff;
+  background-color:#55acee;
+}
+.btn-tw:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+@media(max-width:768px){
+  #login-dp{
+      background-color: inherit;
+      color: #fff;
+  }
+  #login-dp .bottom{
+      background-color: inherit;
+      border-top:0 none;
+  }
 }

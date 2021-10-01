@@ -1,1 +1,13 @@
 <app-carousel1></app-carousel1>
+<div class="row">
+    <header class="span12 pages-header-row"><a class="button button-teal" href="/categories/1">See More</a> <h2>Our Bestsellers</h2></header>
+
+</div>
+<hr style="margin-top: 30px;">
+<div class="row" *ngFor="let category of categories">
+    <header class="span12 pages-header-row"><a class="button button-teal" routerLink="/category/{{category.id}}">See More</a> <h2>{{category.name}}</h2></header>
+    <app-owl-slider
+    [category]="category"
+    ></app-owl-slider>
+</div>
+

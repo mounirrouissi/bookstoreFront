@@ -12,7 +12,20 @@ export class CartService {
   totalPrice: Subject<number> = new Subject<number>();
   totalQuantity: Subject<number> = new Subject<number>();
 
-  constructor() { }
+  // storage:Storage=sessionStorage;
+  storage:Storage=localStorage;
+  constructor() { 
+    //Read data from storage
+    let data =JSON.parse(this.storage.getItem('cartItems')!)
+if(data!=null)
+{
+
+  this.carItems=data
+  
+  //compute totlas based on storage data
+  this.computeCartTotal()
+}
+  }
 
 
   addItem(newCartItem: CartItem) {
@@ -54,6 +67,7 @@ export class CartService {
     this.computeCartTotal()
   }
   computeCartTotal() {
+  
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
 
@@ -68,6 +82,7 @@ export class CartService {
       //logging data 
 
       this.logCartDAta(totalPriceValue, totalQuantityValue);
+      this.persisstCartItems()
     }
 
   logCartDAta( totalPriceValue: number, totalQuantityValue: number) {
@@ -83,10 +98,16 @@ export class CartService {
 
   remove(item: CartItem) {
   const itmeIndex=this.carItems.findIndex(temp=>temp.id==item.id);
+
   if(itmeIndex>-1)
-  this.carItems.splice(itmeIndex,1)
+ { this.carItems.splice(itmeIndex,1)
+  this.computeCartTotal()}
   }
 
+
+  persisstCartItems(){
+    this.storage.setItem('cartItems',JSON.stringify(this.carItems))
+  }
 }
 
 

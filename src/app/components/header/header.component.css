@@ -8,7 +8,11 @@
 }
 
 
+/* //navigation */
 
+.nav-category{
+  margin-top: 200px;
+}
 
 /* hovarble menu */
 
@@ -20,7 +24,7 @@
   }
   .nav-cat a {
     display:block; 
-    background: rgba(75, 64, 29, 0.998); 
+    background: var(--app-color);
     color:#fff; 
     text-decoration: none;
     padding: .8em 1.8em;
@@ -32,7 +36,7 @@
   .nav-cat{  
     vertical-align: top; 
     display: inline-block;
-    box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+    box-shadow: 1px -1px -1px 1px rgb(100, 163, 177), -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
     border-radius:6px;
   }
   .nav-cat li{position: relative;}
@@ -43,7 +47,7 @@
   } 
   .nav-cat > li > a { 
     margin-bottom:1px;
-    box-shadow:inset 0 2em .33em -.5em #555; 
+    box-shadow:inset 0 0.5em .33em -.5em rgb(100, 163, 177); 
   }
   .nav-cat > li:hover , .nav-cat > li:hover >a{  border-bottom-color:orange;}
   .nav-cat li:hover > a { color:orange; }
@@ -205,6 +209,8 @@ nav,
 
   }
   
+
+  .btn{}
   .dropdown {
 	position: relative;
 	display: inline-block;
@@ -349,7 +355,7 @@ padding-bottom: 2px;}
 }
 @media (min-width:768px){
     #miniBasket .details #uxSmallBasketQuantity .number{
-        background-color:#ffd04d;
+        background-color:#e3c09b;
         color:#3a3a3a;
         padding-top:3px;
         right:-4px
@@ -360,7 +366,16 @@ padding-bottom: 2px;}
 }
 
 
+.logo-container{
+  text-align: justify;
+  cursor: pointer;
+}
 
+ .logo{
+  display: block;
+  margin: 0;
+  width: 112px;
+}
 
 
 

@@ -1,16 +1,27 @@
 
 <div class="bookshelf">
-<p>{{category.name}}</p>
     <div class="book-grid">
-        <div class=" container-fluid carousel-wrap slider-container" >
+        <div class=" container-fluid carousel-wrap slider-container "  >
             <owl-carousel-o [options]="customOptions" >
                 
                 <ng-template carouselSlide *ngFor="let book of books">
-                  <div class="slide m-3 p-2">
-                    <a routerLink="/books/{{book.id}}"><img src="https://images-na.ssl-images-amazon.com/images/I/51uLvJlKpNL._SX321_BO1,204,203,200_.jpg" alt="img 1"></a>
-                    <p>{{book.price}}</p>
-                    <p>{{book.name}}</p>
-<button class="bg-info w-100" (click)="addToCart(book)">Add To Cart</button>
+                  <div class="slide m-3 p-2 w-100">
+
+
+
+                    <a routerLink="/books/{{book.id}}"><img src="{{book.imageUrl}}" class="pb-4 h-50 " alt="img 1"></a>
+                    
+                    
+                    <p>{{book.price|currency:"Dn"}}</p><p class="bi bi-star-fill float-end">{{book.ratings}}</p>
+                    <p class="bookName">{{book.name}}</p>
+                    <div class="d-inline">
+                      authors:
+                      <p *ngFor="let person of book.authors; let i = index" class="d-inline-flex g-2 p-1 bookAuthors">{{book.authors[i].name}}</p></div><br>
+                    <button class="add-btn mt-4 h-25 w-75" (click)="addToCart(book)">Add To Cart</button>
+                    
+                    
+
+
                   </div>
                 
                 </ng-template>

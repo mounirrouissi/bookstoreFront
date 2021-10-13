@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OktaCallbackComponent } from '@okta/okta-angular';
-import { AuthGuard } from './auth/auth.guard';
-import { BlogComponent } from './blog/blog.component';
 import { BookComponent } from './books/book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { CartCheckoutComponent } from './components/cart-checkout/cart-checkout.component';
@@ -27,10 +25,8 @@ const routes: Routes = [
 {path:"checkout",component:CartCheckoutComponent},
 {path:"category/:id",component:BookComponent},
 // {path:"category/:name",component:BookComponent},
-{path:"blog",component:BlogComponent},
 {path:"cart-details",component:CartDetailsComponent},
 // {path:"cart-checkout",component:CartCheckoutComponent},
-{path:"pricing",component:PricingComponent,canActivate:[AuthGuard]},
 {path:"books",component:BookComponent},
 {path:"books/:id",component:BookDetailComponent},
 {path:"search/:keyword",component:BookComponent},

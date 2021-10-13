@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import { Purchase } from 'app/models/checkoutOrder/purchase';
 import { Feedback } from 'app/models/Feedback';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
@@ -14,6 +15,16 @@ import { User } from '../models/User';
   providedIn: 'root'
 }) 
 export class ApiService {
+  filterBooksByDAte(books: any):Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl+"books/filter/date");
+  }
+  
+  
+  
+  
+  sendOrder(purchase: Purchase):Observable<any>{
+    return this.http.post<Purchase>(this.baseUrl+"purchase",purchase);
+  }
   getlatestSixBooks(id: Number):Observable<Book[]> {
     
    return this.http.get<Book[]>(this.baseUrl+"/books/latest/"+id) 

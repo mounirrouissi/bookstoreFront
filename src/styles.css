@@ -1,3 +1,9 @@
+:root {
+    --app-color: #6f6c9e
+    ;
+  }
+
+
 p {
     color: #444;
     font-family: "DM Sans", sans-serif;
@@ -7,3 +13,4 @@ p {
     margin-top: 0;
     margin-bottom: 1rem;
   }
+

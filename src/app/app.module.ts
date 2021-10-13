@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { Injector } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PricingComponent } from './pricing/pricing.component';
-import { BlogComponent } from './blog/blog.component';
 import { HttpClientModule, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { BookComponent } from './books/book.component';
@@ -40,12 +40,14 @@ import myAppConfig from './config/my-app-config';
 import {
   OKTA_CONFIG,
   OktaAuthModule,
+
   OktaCallbackComponent,
   OktaAuthGuard
 } from '@okta/okta-angular';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OwlSliderComponent } from './components/owl-slider/owl-slider.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 const oktaConfig = Object.assign({
@@ -62,7 +64,6 @@ const oktaConfig = Object.assign({
   declarations: [
     AppComponent,
     PricingComponent,
-    BlogComponent,
     BookComponent,
     SearchComponent,
     BookDetailComponent,
@@ -76,11 +77,14 @@ const oktaConfig = Object.assign({
     LoginStatusComponent,
     ContactComponent,
     OwlSliderComponent,
+    FilterPipe,
 
     
   ],
   imports: [
-    OktaAuthModule
+    OktaAuthModule,
+    MDBBootstrapModule.forRoot()
+
 , 
 FormsModule,
     FormsModule,

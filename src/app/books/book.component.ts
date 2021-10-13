@@ -22,6 +22,9 @@ pageNumber:number=1;
 pageSize=10;
 totalElements:number=0;
 
+sortByDate:any
+name=""
+date=Date.now
 
 
   constructor(private apiService:ApiService,private route:ActivatedRoute,private cartService:CartService) { }
@@ -121,5 +124,10 @@ console.log("ddd"+cartItem.name)
 this.cartService.addItem(cartItem);
 }
 
+filterByDate(){
+  this.apiService.filterBooksByDAte(this.books)
 }
 
+}
+
+  

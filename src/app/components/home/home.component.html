@@ -1,13 +1,60 @@
-<app-carousel1></app-carousel1>
-<div class="row">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <mdb-carousel class="carousel slide carousel-fade mt-5" [animation]="'fade'">
+        <mdb-carousel-item>
+          <div class="view w-100">
+            <img class="d-block w-100" src="../../../assets/images/slider_images/library.jfif" alt="First slide">
+            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <div class="view w-100">
+            <img class="d-block w-100" src="../../../assets/images/slider_images/library2.jfif" alt="Second slide">
+            <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+          <div class="view w-100">
+            <img class="d-block w-100" src="../../../assets/images/slider_images/library3.jfif" alt="Third slide">
+            <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </mdb-carousel-item>
+      </mdb-carousel>
+    <!--
+<div class="row ">
     <header class="span12 pages-header-row"><a class="button button-teal" href="/categories/1">See More</a> <h2>Our Bestsellers</h2></header>
 
 </div>
+-->
 <hr style="margin-top: 30px;">
+
 <div class="row" *ngFor="let category of categories">
-    <header class="span12 pages-header-row"><a class="button button-teal" routerLink="/category/{{category.id}}">See More</a> <h2>{{category.name}}</h2></header>
+    <header class="span12  pages-header-row"><a class="button button-teal" routerLink="/category/{{category.id}}">See More</a> <h2>{{category.name}}</h2></header>
     <app-owl-slider
     [category]="category"
     ></app-owl-slider>
 </div>
 
+    
+</body>
+</html>

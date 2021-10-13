@@ -9,47 +9,59 @@
 
 <body >
 
-  <div class="d-inline-grid   start-page m-0 p-auto  ">
-          <h1 class="category-title text-center">{{category?.name}}</h1>
-
-      <div class="d-inline-flex" *ngFor="let item of books">
-  
-
+  <div class="d-inline-grid   start-page m-0 p-auto  mt-5">
    
-        <div class="card m-3   pe-0 w-100  ">
+          <h1 class="category-title text-center mt-2">{{category?.name}}</h1>
+          <h1>Filter By:</h1>
+          <div class="moved fixed-toop p-3">
+            Date:<input type="checkbox" unchecked [checked]="filterByDate()" 
+           >
+        
           
-  
+            <label class="mx-2">Ratings: </label><input type="checkbox" [(ngModel)]="name">
+          
+          
+            <button class="mx-5" (click)="filterByDate()" >Search </button>
+          
+          </div>
+         
+               <div class="d-inline-flex 2" *ngFor="let item of books">
+           
+         
+            
+                 <div class="card m-3   pe-0 w-100  ">
+         
             <div class="box bg-light ">
               <a href="" routerLink="/books/{{item.id}}" >
                 <div class="slide-img">
-                  <i> <img class="image"  src="../assets/images/Webp.net-resizeimage-05d69d62624843d4afc367ab3a4a3d3a.webp" alt=""></i>
+                  <i> <img class="image"  src="{{item.imageUrl}}" alt=""></i>
                   // TODO when clicked should direct me to checkout
                   <div class="overlay"><a routerLink="/books/{{item.id}}" class="buy-btn">Buy now</a></div>
                 </div>
               </a>
               <div class="detail-box ">
-                <h3 class="text-center pb-4">{{item.name}}</h3>
-                
+                <h3 class="text-center pb-4 pt-4">{{item.name}}</h3>
+         
                   <div class="text-info text-center justify-content-between d-flex">
-        <button (click)="addToCart(item)" class="text-light bg-primary   shadow-none  rounded-end  ">
-          Add to cart </button>
-                    <h3 class="d-block ms-auto">{{item.price | currency : "DN" }}</h3>
-        
+                 <button (click)="addToCart(item)" class="  ">
+          Add to cart           <i class="bi bi-cart fa-1x float-end"></i>
+                 </button>
+                    <h3 class="d-block ms-auto bookPrice">{{item.price | currency : "DN" }}</h3>
                   </div>
-        
-                
+         
               </div>
             </div>
-          
          
-        </div>
-        </div>
+         
+                 </div>
+                 </div>
+         
   
   </div>
   
     <div *ngIf="books?.length==0" class="alert alert-warning">No Product found</div>
   
-    <p>Default pagination:</p>
+    <!-- <p>Default pagination:</p> -->
     <ngb-pagination class="d-flex justify-content-end"
      [collectionSize]="50" 
      [(page)]="pageNumber"
@@ -60,8 +72,9 @@
     
     
     
-    <pre>Current page: {{pageNumber}}</pre>
-    <!--end pagination footer -->
+    
+    <!--<pre>Current page: {{pageNumber}}</pre>--> 
+     <!--end pagination footer -->
   
 </body>
 </html>

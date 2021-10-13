@@ -14,7 +14,7 @@
             <img class="img-fluid" :src="bannerImage" alt="" />
             <div class="product-thumbnails img-thumbnail">
               <ul>
-                <img  class="img-responsive img-thumbnail" src="../../../assets/images/Webp.net-resizeimage-05d69d62624843d4afc367ab3a4a3d3a.webp" alt="" />
+                <img  class="img-responsive img-thumbnail" src="{{book.imageUrl}}" alt="" />
               </ul>
             </div>
           </div>
@@ -24,9 +24,10 @@
             </h3>
             <h4 v-if="stockAvailability">Stock Available</h4>
             <h4 v-else="stockAvailability">Oops!! Out Of Stock</h4>
-            <h3 class="my-3">Details</h3>
+            <h3 class="fa fa-leaf glyphicon-text-size lead text-justify  my-3">Details</h3>
+            <p>{{book.description}}</p>
             <ul v-for="detail in productChecks">
-              <li></li>
+              
             </ul>
             <button type="button"  (click)="addToCart()"  class="btn btn-outline-primary btn-lg btn-block btn-custom-color bi-cart" >
               ADD TO CART

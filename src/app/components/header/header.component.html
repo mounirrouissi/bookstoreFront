@@ -22,7 +22,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01" [ngbCollapse]="isCollapsed">
-        <a class="navbar-brand" href="#">Hidden brand</a>
+       <div class="logo-container " routerLink="/home"  >
+         <img class="navbar-brand logo"  src="../../../assets/images/logo.png">
+        <p class="text-decoration-underline text-opacity-25 bg-light animate__bounce">BestSeller Co.</p>
+        </div>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item   nav-item-login ">
             <app-login-status></app-login-status>
@@ -65,7 +68,7 @@
 
 
 <!--Navigation-->
-<nav class="nav-category mt-5 pt-5 pb-5 mb-5">
+<nav class="nav-category">
     <ul class="nav-cat  d-none d-md-block ">
       <li><a href="#">Books</a>
     <ul>
@@ -80,7 +83,7 @@
     </li>
       <li><a href="#">Ebook</a>
         <ul>
-          <li><a href="#">item</a></li>
+          <li><a href="#">Free Stuff  </a></li>
           <li><a href="#">item</a></li>
           <li><a href="#">item</a></li>
           <li><a href="#">item</a></li>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://www.localhost:8042/"
+  baseUrl: "https://mybookstorewebsite.herokuapp.com/"
 
 };
 

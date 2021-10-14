@@ -37,9 +37,7 @@
                
             ],
             "scripts": [
-              "node_modules/@okta/okta-signin-widget/dist/js/okta-sign-in.min.js",
-              "/Users/dd/Documents/angular/test2/node_modules/angular-bootstrap-md/esm2015/lib/free/carousel/carousel.component.js"
-
+              "node_modules/@okta/okta-signin-widget/dist/js/okta-sign-in.min.js"
             ]
           },
           "configurations": {

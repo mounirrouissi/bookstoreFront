@@ -8,4 +8,4 @@ app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/test2/'}),
 );
 
-app.listen(process.env.PORT || 8080);é
+app.listen(process.env.PORT || 8080);

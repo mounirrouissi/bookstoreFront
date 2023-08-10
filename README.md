@@ -1,5 +1,5 @@
-This is  is the code base of my android app which is part of my BookStore project which also contains the web app with angular and spring boot 
-**angular**: **https://github.com/mounirrouissi/BookApp**
+This is  is the code base of my angular app which is part of my BookStore project which also contains the web app with angular and spring boot and android version
+**android**: **https://github.com/mounirrouissi/BookApp**
 **Spring** : **https://github.com/mounirrouissi/bookstoreBack**
 
 # TestSvg

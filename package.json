@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
     "@fortawesome/fontawesome": "^1.1.8",
-    "@ng-bootstrap/ng-bootstrap": "^9.1.1",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "bootstrap": "^5.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
